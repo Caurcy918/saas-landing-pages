@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo Installing dependencies...
+      - npm ci --legacy-peer-deps
+
+  build:
+    commands:
+      - echo Building Tailwind CSS...
+      - npm run build:tailwind
+      - echo Build completed successfully
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: .
+  discard-paths: no
